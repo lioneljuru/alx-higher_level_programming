@@ -7,7 +7,7 @@
  * Return: NULL for failure
  * 	pointer to the new node otherwise
  */
-lisrint_t *insert_node(listint_t **head, int number)
+listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *node = *head,*new;
 
