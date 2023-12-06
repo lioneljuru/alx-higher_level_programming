@@ -8,7 +8,7 @@ def to_substract(list_num):
     return (max_list - to_sub)
 
 def roman_to_int(roman_string):
-    if not roman-string:
+    if not roman_string:
         return 0
     if not isinstance(roman_string, str):
         return 0
