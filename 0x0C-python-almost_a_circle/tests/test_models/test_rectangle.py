@@ -446,7 +446,7 @@ class TestRectangle_area(unittest.TestCase):
 
     def test_area_one_arg(self):
         r = Rectangle(2, 10, 1, 1, 1)
-        width self.assertRaises(TypeError):
+        with self.assertRaises(TypeError):
             r.area(1)
 
 
