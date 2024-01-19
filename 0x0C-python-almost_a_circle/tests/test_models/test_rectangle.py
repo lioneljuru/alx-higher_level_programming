@@ -412,7 +412,7 @@ class TestRectangle_order_of_initialization(unittest.TestCase):
 
     def test_width_before_y(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Rectangle("invalid width", 2, , "invalid y")
+            Rectangle("invalid width", 2, 3, "invalid y")
 
     def test_height_before_x(self):
         with self.assertRaisesRegex(TypeError, "height must be an integer"):

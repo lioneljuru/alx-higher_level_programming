@@ -32,7 +32,7 @@ class TestSquare_instantiation(unittest.TestCase):
         self.assertIsInstance(Square(10), Square)
 
     def test_no_args(self):
-        self.assertRaises(TypeError):
+        with self.assertRaises(TypeError):
             Square()
 
     def test_one_arg(self):
