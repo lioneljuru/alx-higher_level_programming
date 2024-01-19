@@ -251,11 +251,11 @@ class TestRectangle_height(unittest.TestCase):
             Rectangle(1, float('nan'))
 
     def test_negative_height(self):
-        with self.assertRaisesRegex(ValueError, "height must be >0"):
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
             Rectangle(1, -1)
 
     def test_zero_height(self):
-        with self.assertRaisesRegex(ValueError, "height must be >0"):
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
             Rectangle(1, 0)
 
 
@@ -590,7 +590,7 @@ class TestRectangle_update_args(unittest.TestCase):
         r = Rectangle(10, 10, 10, 10, 10)
         r.update(89, 2, 3, 4, 5, 6)
         r.update(6, 5, 4, 3, 2, 89)
-        self.assertEqual("[Rectangle] (6) 3/2 - 5/4", (r))
+        self.assertEqual("[Rectangle] (6) 3/2 - 5/4", str(r))
 
     def test_update_args_invalid_width_type(self):
         r = Rectangle(10, 10, 10, 10, 10)
@@ -766,7 +766,7 @@ class TestRectangle_update_kwargs(unittest.TestCase):
 
     def test_update_kwargs_y_negative(self):
         r = Rectangle(10, 10, 10, 10, 10)
-        with self.assertRaisesRegex(ValueError, "width must be >= 0"):
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             r.update(y=-5)
 
     def test_update_args_and_kwargs(self):

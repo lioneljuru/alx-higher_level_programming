@@ -312,11 +312,11 @@ class TestSquare_order_of_initialization(unittest.TestCase):
 
     def test_size_before_y(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Square("invalid size", "invalid y")
+            Square("invalid size", 1, "invalid y")
 
     def test_x_before_y(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Square("invalid x", "invalid y")
+            Square(1, "invalid x", "invalid y")
 
 
 class TestSquare_area(unittest.TestCase):
@@ -527,7 +527,7 @@ class TestSquare_update_args(unittest.TestCase):
     def test_update_args_size_before_y(self):
         s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            s.update(89, 1, "invalid", 2, "invalid")
+            s.update(89, "invalid", 2, "invalid")
 
     def test_update_args_x_before_y(self):
         s = Square(10, 10, 10, 10)
@@ -584,7 +584,7 @@ class TestSquare_update_kwargs(unittest.TestCase):
         s = Square(10, 10, 10, 10)
         s.update(id=89, x=1)
         s.update(y=3, x=15, size=2)
-        self.assertEqual("[Square] (89) 15/3 -2", str(s))
+        self.assertEqual("[Square] (89) 15/3 - 2", str(s))
 
     def test_update_kwargs_invalid_size(self):
         s = Square(10, 10, 10, 10)
@@ -633,7 +633,7 @@ class TestSquare_update_kwargs(unittest.TestCase):
 
     def test_update_kwargs_some_wrong_keys(self):
         s = Square(10, 10, 10, 10)
-        s.update(size, id=89, a=1, b=54)
+        s.update(size=5, id=89, a=1, b=54)
         self.assertEqual("[Square] (89) 10/10 - 5", str(s))
 
 
@@ -643,7 +643,7 @@ class TestSquare_to_dictionary(unittest.TestCase):
     def test_to_dictionary_output(self):
         s = Square(10, 2, 1, 1)
         correct = {'id': 1, 'x': 2, 'size': 10, 'y': 1}
-        self.assertDictEqual(correct, s,to_dictionary())
+        self.assertDictEqual(correct, s.to_dictionary())
 
     def test_to_dictionary_no_object_changes(self):
         s1 = Square(10, 2, 1, 2)
