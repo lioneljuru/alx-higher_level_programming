@@ -282,6 +282,7 @@ class TestBase_from_json_string(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base.from_json_string([], 1)
 
+
 class TestBase_create(unittest.TestCase):
     """Unittests for testing create method of Base class."""
 
