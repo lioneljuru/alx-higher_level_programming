@@ -74,7 +74,7 @@ class TestBase_instantiation(unittest.TestCase):
         self.assertEqual([1, 2, 3], Base([1, 2, 3]).id)
 
     def test_tuple_id(self):
-        self.assertEqual((1, 20), Base((1, 2)).id)
+        self.assertEqual((1, 2), Base((1, 2)).id)
 
     def test_set_id(self):
         self.assertEqual({1, 2, 3}, Base({1, 2, 3}).id)
@@ -257,7 +257,7 @@ class TestBase_from_json_string(unittest.TestCase):
         list_input = [{"id": 89, "size": 10, "height": 4}]
         json_list_input = Square.to_json_string(list_input)
         list_output = Square.from_json_string(json_list_input)
-        self.asserEqual(list_input, list_output)
+        self.assertEqual(list_input, list_output)
 
     def test_from_json_string_two_squares(self):
         list_input = [
@@ -427,8 +427,8 @@ class TestBase_save_to_file_csv(unittest.TestCase):
             self.assertTrue("5,10,7,2,8", f.read())
 
     def test_save_to_file_csv_two_rectangles(self):
-        r1 = Rectangles(10, 7, 2, 8, 5)
-        r2 = Rectangles(2, 4, 1, 2, 3)
+        r1 = Rectangle(10, 7, 2, 8, 5)
+        r2 = Rectangle(2, 4, 1, 2, 3)
         Rectangle.save_to_file_csv([r1, r2])
         with open("Rectangle.csv", "r") as f:
             self.assertTrue("5,10,7,2,8\n2,4,1,2,3", f.read())
@@ -503,7 +503,7 @@ class TestBase_load_from_file_csv(unittest.TestCase):
 
     def test_load_from_file_csv_second_rectangle(self):
         r1 = Rectangle(10, 7, 2, 8, 1)
-        r2 = Rectanlge(2, 4, 5, 6, 2)
+        r2 = Rectangle(2, 4, 5, 6, 2)
         Rectangle.save_to_file_csv([r1, r2])
         list_rectangles_output = Rectangle.load_from_file_csv()
         self.assertEqual(str(r2), str(list_rectangles_output[1]))

@@ -303,7 +303,7 @@ class TestSquare_y(unittest.TestCase):
             Square(3, 0, -1)
 
 
-class TestSquare_order_of_initialization(unitest.TestCase):
+class TestSquare_order_of_initialization(unittest.TestCase):
     """Unittests for testing order of Square attributt initialization."""
 
     def test_size_before_x(self):
